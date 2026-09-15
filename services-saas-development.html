@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SaaS Application Development — Infinite Designs</title>
+<meta name="description" content="Multi-tenant products with billing, onboarding and the unit economics worked out.">
+<meta name="theme-color" content="#07060D">
+<link rel="canonical" href="https://infinitedesigns.com.bd/services-saas-development.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Infinite Designs">
+<meta property="og:title" content="SaaS Application Development — Infinite Designs">
+<meta property="og:description" content="Multi-tenant products with billing, onboarding and the unit economics worked out.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'><path d='M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19' fill='none' stroke='%237B5CFF' stroke-width='9' stroke-linecap='round'/></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'><path d='M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19' fill='none' stroke='%237B5CFF' stroke-width='9' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,600;12..96,75..100,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="lw">
+    <svg viewBox="0 0 120 60" aria-hidden="true">
+      <defs><linearGradient id="lgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7B5CFF"/><stop offset="55%" stop-color="#6B7BFF"/><stop offset="100%" stop-color="#3AE0D0"/></linearGradient></defs>
+      <path class="draw" d="M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19" fill="none" stroke="url(#lgrad)" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <div class="bar"><i id="loadbar"></i></div>
+    <div class="pc" id="loadpc">00</div>
+  </div>
+</div>
+
+<canvas id="delta" aria-hidden="true"></canvas>
+<div id="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"></div>
+
+<header class="hdr" id="hdr">
+  <div class="shell hdr-in">
+    <a href="index.html" class="brand" aria-label="Infinite Designs home">
+      <svg viewBox="0 0 120 60" aria-hidden="true"><defs><linearGradient id="bgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7B5CFF"/><stop offset="55%" stop-color="#6B7BFF"/><stop offset="100%" stop-color="#3AE0D0"/></linearGradient></defs><path d="M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19" fill="none" stroke="url(#bgrad)" stroke-width="7" stroke-linecap="round"/></svg>
+      <span class="brand-name">Infinite Designs<small>Uttara &middot; Dhaka</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Primary"><a href="work.html">Work</a><a href="services.html" class="on">Services</a><a href="about.html">About</a><a href="insights.html">Insights</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></nav>
+    <div class="hdr-cta">
+      <a href="contact.html" class="btn btn-pri btn-sm" data-cursor>Start a project<svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <nav id="drawerNav" aria-label="Mobile"><a href="work.html"><span>Work</span><span class="idx">01</span></a><a href="services.html" class="on"><span>Services</span><span class="idx">02</span></a><a href="about.html"><span>About</span><span class="idx">03</span></a><a href="insights.html"><span>Insights</span><span class="idx">04</span></a><a href="careers.html"><span>Careers</span><span class="idx">05</span></a><a href="contact.html"><span>Contact</span><span class="idx">06</span></a></nav>
+  <div class="drawer-foot">
+    <a href="mailto:hello@infinitedesigns.com.bd">hello@infinitedesigns.com.bd</a><a href="tel:+8801838642061">01838642061</a><span>Uttara, Dhaka 1230</span>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <main id="app">
+
+<section class="hero" style="padding-bottom:0">
+  <div class="shell">
+    <div class="breadcrumb"><a href="services.html">Services</a> <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg> <span>Product</span></div>
+    <div class="two-col" style="align-items:end">
+      <div>
+        <span class="ico" style="width:56px;height:56px;border-radius:15px;display:grid;place-items:center;background:var(--grad-soft);border:1px solid var(--line-2);margin-bottom:22px"><svg style="width:26px;height:26px;stroke:var(--cyan);fill:none;stroke-width:1.6" class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 18.5A4.5 4.5 0 0 1 7 9.6a6 6 0 0 1 11.4 1.6A3.9 3.9 0 0 1 17.6 18.5z"></path><path d="M12 12v5M9.8 14.4L12 12l2.2 2.4"></path></svg></span>
+        <h1 style="max-width:14ch">SaaS Application Development</h1>
+      </div>
+      <p class="lede">Multi-tenant products with billing, onboarding and the unit economics worked out.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell cs-split">
+    <div class="cs-sticky">
+      <span class="mini-head">Typical outcomes</span>
+      <div class="stack" style="gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden">
+        <div style="background:var(--ink-850);padding:20px 22px">
+          <b style="font-family:var(--font-display);font-size:1.9rem;font-weight:800;letter-spacing:-.04em;color:var(--marigold);line-height:1">12 wk</b>
+          <div style="font-size:.86rem;color:var(--txt-dim);margin-top:6px">typical MVP to first paying tenant</div></div><div style="background:var(--ink-850);padding:20px 22px">
+          <b style="font-family:var(--font-display);font-size:1.9rem;font-weight:800;letter-spacing:-.04em;color:var(--marigold);line-height:1">3</b>
+          <div style="font-size:.86rem;color:var(--txt-dim);margin-top:6px">isolation models we implement, chosen by risk</div></div><div style="background:var(--ink-850);padding:20px 22px">
+          <b style="font-family:var(--font-display);font-size:1.9rem;font-weight:800;letter-spacing:-.04em;color:var(--marigold);line-height:1">Day 1</b>
+          <div style="font-size:.86rem;color:var(--txt-dim);margin-top:6px">billing and usage metering live at launch</div></div>
+      </div>
+      <div style="margin-top:22px"><span class="mini-head">Tools &amp; stack</span><div class="tagset"><span>TypeScript</span><span>NestJS</span><span>React</span><span>PostgreSQL</span><span>Stripe</span><span>Temporal</span><span>Terraform</span><span>PostHog</span></div></div>
+      <div style="margin-top:26px"><a href="contact.html" class="btn btn-pri" data-cursor="">Talk about SaaS Application Development<svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"></path></svg></a></div>
+    </div>
+    <div class="d1">
+      <div class="prose" style="max-width:none"><p>Building a SaaS product is a different discipline from building software for one company. Tenancy, metering, self-serve onboarding, plan changes, dunning, churn instrumentation — these decide whether the product survives its second year.</p><p>We build with a founder, not for one. That means an architecture that can be handed to your own team, and a roadmap shaped by activation and retention data rather than a feature wish list.</p></div>
+      <h3 style="margin-top:40px">What the work includes</h3>
+      <ul class="list-check" style="margin-top:18px"><li>Product discovery, scoping and MVP definition</li><li>Multi-tenant architecture and data isolation</li><li>Subscription billing, metering and invoicing</li><li>Self-serve onboarding and activation flows</li><li>Admin consoles, impersonation and support tooling</li><li>Usage analytics, cohort and churn instrumentation</li><li>SOC-friendly audit logging and data export</li><li>Scaling plan with cost per tenant modelled</li></ul>
+      <h3 style="margin-top:40px">What you receive</h3>
+      <ul class="list-check" style="margin-top:18px"><li>Launch-ready product with billing live</li><li>Tenant provisioning and support console</li><li>Activation and retention analytics dashboards</li><li>Technical roadmap and hiring plan for your team</li></ul>
+      <h3 style="margin-top:40px">Questions we get asked</h3>
+      <div class="acc" style="margin-top:14px"><div class="acc-item"><button class="acc-btn" type="button"><span>Can you build an MVP on a fixed budget?</span><span class="pm"></span></button>
+    <div class="acc-panel"><div class="inner"><p>Yes, by fixing scope to a single core journey and cutting everything else into a phase two. We will tell you which features are not load-bearing.</p></div></div></div><div class="acc-item"><button class="acc-btn" type="button"><span>How do you handle tenant data isolation?</span><span class="pm"></span></button>
+    <div class="acc-panel"><div class="inner"><p>Shared schema with row-level security, schema-per-tenant, or database-per-tenant — chosen by your regulatory exposure and cost ceiling, and documented before we build.</p></div></div></div><div class="acc-item"><button class="acc-btn" type="button"><span>Do you take equity instead of fees?</span><span class="pm"></span></button>
+    <div class="acc-panel"><div class="inner"><p>Occasionally, as a partial arrangement with a clear scope and milestone structure. It is a conversation, not a standard offer.</p></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0"><div class="shell">
+  
+  <div class="sec-head">
+    <span class="eyebrow">Related work</span>
+    <div class="row">
+      <h2 style="max-width:18ch">SaaS Application Development in production.</h2>
+      
+    </div>
+    
+  </div>
+  <div class="work-grid">
+  <a href="work-lumenpay.html" class="work-card d1" data-sector="Fintech / SaaS" data-cursor-big="">
+    <div class="work-thumb"><span class="tag">Fintech / SaaS · 2026</span><svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Lumenpay project visual"><defs>
+    <linearGradient id="g148" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgb(49,38,100)"></stop><stop offset="100%" stop-color="#0A0912"></stop></linearGradient>
+    <linearGradient id="g149" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#7B5CFF" stop-opacity=".95"></stop><stop offset="100%" stop-color="rgb(169,149,255)" stop-opacity=".55"></stop></linearGradient>
+    <clipPath id="c150"><rect width="640" height="400" rx="0"></rect></clipPath>
+  </defs>
+  <rect width="640" height="400" fill="url(#g148)"></rect><g clip-path="url(#c150)"><circle cx="194" cy="90" r="190" fill="#7B5CFF" opacity=".16"></circle><g opacity=".45"><line x1="176" y1="242" x2="313" y2="159" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="176" y1="242" x2="87" y2="273" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="176" y1="242" x2="224" y2="190" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="176" y1="242" x2="135" y2="221" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="176" y1="242" x2="272" y2="138" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="176" y1="242" x2="183" y2="169" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="313" y1="159" x2="450" y2="76" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="313" y1="159" x2="224" y2="190" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="313" y1="159" x2="361" y2="107" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="313" y1="159" x2="135" y2="221" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="313" y1="159" x2="272" y2="138" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="313" y1="159" x2="183" y2="169" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="313" y1="159" x2="320" y2="86" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="450" y1="76" x2="361" y2="107" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="450" y1="76" x2="272" y2="138" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="450" y1="76" x2="320" y2="86" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="87" y1="273" x2="224" y2="190" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="87" y1="273" x2="135" y2="221" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="87" y1="273" x2="183" y2="169" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="224" y1="190" x2="361" y2="107" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="224" y1="190" x2="135" y2="221" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="224" y1="190" x2="272" y2="138" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="224" y1="190" x2="183" y2="169" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="224" y1="190" x2="320" y2="86" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="361" y1="107" x2="272" y2="138" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="361" y1="107" x2="183" y2="169" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="361" y1="107" x2="320" y2="86" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="498" y1="304" x2="409" y2="335" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="498" y1="304" x2="546" y2="252" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="498" y1="304" x2="457" y2="283" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="135" y1="221" x2="272" y2="138" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="135" y1="221" x2="183" y2="169" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="272" y1="138" x2="183" y2="169" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="272" y1="138" x2="320" y2="86" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="409" y1="335" x2="546" y2="252" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="409" y1="335" x2="457" y2="283" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="546" y1="252" x2="457" y2="283" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line><line x1="183" y1="169" x2="320" y2="86" stroke="#7B5CFF" stroke-opacity=".38" stroke-width="1"></line></g>
+      <circle cx="176" cy="242" r="7" fill="#7B5CFF"></circle><circle cx="313" cy="159" r="4" fill="#ffffff40"></circle><circle cx="450" cy="76" r="4" fill="#ffffff40"></circle><circle cx="87" cy="273" r="4" fill="#ffffff40"></circle><circle cx="224" cy="190" r="7" fill="#7B5CFF"></circle><circle cx="361" cy="107" r="4" fill="#ffffff40"></circle><circle cx="498" cy="304" r="4" fill="#ffffff40"></circle><circle cx="135" cy="221" r="4" fill="#ffffff40"></circle><circle cx="272" cy="138" r="7" fill="#7B5CFF"></circle><circle cx="409" cy="335" r="4" fill="#ffffff40"></circle><circle cx="546" cy="252" r="4" fill="#ffffff40"></circle><circle cx="183" cy="169" r="4" fill="#ffffff40"></circle><circle cx="320" cy="86" r="7" fill="#7B5CFF"></circle><circle cx="457" cy="283" r="4" fill="#ffffff40"></circle>
+      <g transform="translate(200 140)"><rect width="240" height="120" rx="14" fill="#0C0B16" stroke="#ffffff26"></rect>
+        <circle cx="46" cy="60" r="22" fill="none" stroke="#7B5CFF" stroke-width="2.4"></circle><circle cx="46" cy="60" r="8" fill="#7B5CFF"></circle>
+        <rect x="84" y="40" width="120" height="8" rx="4" fill="#ffffff33"></rect><rect x="84" y="58" width="90" height="7" rx="3.5" fill="#ffffff1f"></rect><rect x="84" y="76" width="64" height="12" rx="4" fill="rgb(169,149,255)" opacity=".8"></rect></g></g></svg></div>
+    <div class="work-body">
+      <div class="cl"><svg viewBox="0 0 140 28" style="height:20px" role="img" aria-label="Lumenpay logo">
+    <g><path d="M14 2.6l10 5.8v11.2L14 25.4 4 19.6V8.4z" fill="none" stroke="#7B5CFF" stroke-width="2.2" stroke-linejoin="round"></path><path d="M14 8v6.6h5.4" fill="none" stroke="#7B5CFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="14" cy="14" r="1.7" fill="#7B5CFF"></circle></g>
+    <text x="37" y="19.6" font-family="'Bricolage Grotesque','Trebuchet MS',sans-serif" font-size="16" font-weight="700" letter-spacing="-0.4" fill="#EDEBF7">Lumenpay</text>
+  </svg></div>
+      <h3>A payment orchestration layer that survives when a provider does not</h3>
+      <p>A multi-tenant orchestration platform routing card, wallet and mobile financial service payments across eleven providers with automatic failover.</p>
+      <div class="work-kpis"><span class="kpi"><b>99.99%</b>checkout availability across provider</span><span class="kpi"><b>2.5 days → 20 min</b>monthly reconciliation effort</span><span class="kpi"><b>+9.2pp</b>median authorisation rate improvement</span></div>
+    </div>
+  </a></div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="shell">
+  
+  <div class="sec-head">
+    <span class="eyebrow">Other services</span>
+    <div class="row">
+      <h2 style="max-width:18ch">Most projects combine three or four.</h2>
+      
+    </div>
+    
+  </div>
+  <div class="grid g3">
+  <a href="services-web-development.html" class="card d1" data-tilt="" data-cursor="">
+    <span class="card-num">01</span>
+    <span class="ico"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18M7 4h10a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"></path><circle cx="6" cy="6" r=".6"></circle><path d="M10 13l-2 2 2 2M14 13l2 2-2 2"></path></svg></span>
+    <h4 style="margin-top:6px">Web Development</h4>
+    <p>Fast, accessible, search-visible web platforms built to survive real traffic.</p>
+    <span class="more">Explore Engineering <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+  </a>
+  <a href="services-ui-ux-design.html" class="card d2" data-tilt="" data-cursor="">
+    <span class="card-num">02</span>
+    <span class="ico"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v4h-7zM13 11h7v9h-7zM4 14h7v6H4z"></path><circle cx="7.5" cy="7.5" r="1.6"></circle></svg></span>
+    <h4 style="margin-top:6px">UI/UX Design</h4>
+    <p>Research-led product design, from first interview to a design system engineers can build.</p>
+    <span class="more">Explore Design <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+  </a>
+  <a href="services-software-development.html" class="card d3" data-tilt="" data-cursor="">
+    <span class="card-num">03</span>
+    <span class="ico"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16"></path></svg></span>
+    <h4 style="margin-top:6px">Software Development</h4>
+    <p>Custom systems for operations no off-the-shelf product will ever fit.</p>
+    <span class="more">Explore Engineering <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+  </a>
+  <a href="services-ai-solutions.html" class="card d1" data-tilt="" data-cursor="">
+    <span class="card-num">04</span>
+    <span class="ico"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2L19 19M19 5l-2.8 2.8M7.8 16.2L5 19"></path></svg></span>
+    <h4 style="margin-top:6px">Artificial Intelligence (AI) Solutions</h4>
+    <p>Applied AI that clears a measurable amount of work, with evaluation before rollout.</p>
+    <span class="more">Explore AI <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+  </a>
+  <a href="services-digital-marketing-seo.html" class="card d2" data-tilt="" data-cursor="">
+    <span class="card-num">05</span>
+    <span class="ico"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21M8 11l2 2 3.5-4"></path></svg></span>
+    <h4 style="margin-top:6px">Digital Marketing &amp; SEO</h4>
+    <p>Technical SEO, content and paid media measured against pipeline, not impressions.</p>
+    <span class="more">Explore Growth <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+  </a>
+  <a href="services-mobile-app-development.html" class="card d3" data-tilt="" data-cursor="">
+    <span class="card-num">06</span>
+    <span class="ico"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="3"></rect><path d="M10.5 18.5h3"></path><path d="M9 6h6"></path></svg></span>
+    <h4 style="margin-top:6px">Mobile App Development</h4>
+    <p>Native and cross-platform apps built for mid-range Android and patchy networks.</p>
+    <span class="more">Explore Engineering <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+  </a></div>
+</div></section>
+
+  <section class="sec"><div class="shell">
+    <div class="cta-band" data-par="-0.05">
+      <span class="eyebrow solo" style="justify-content:center">Start a conversation</span>
+      <h2 style="margin-top:16px">Let’s work out whether we’re the right studio for this.</h2>
+      <p class="lede">Tell us what you’re trying to build. You’ll get a senior person on the first call — not a salesperson — and an honest answer about scope, budget and timeline within two working days.</p>
+      <div class="acts"><a href="contact.html" class="btn btn-pri" data-cursor="">Start a project<svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"></path></svg></a><a href="work.html" class="btn btn-ghost" data-cursor="">See how we work<svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"></path></svg></a></div>
+    </div>
+  </div></section>
+  </main>
+
+<footer class="ftr">
+    <div class="shell">
+      <div class="ftr-top">
+        <div>
+          <a href="index.html" class="brand" style="margin-bottom:18px">
+            <svg viewBox="0 0 120 60" aria-hidden="true"><path d="M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19" fill="none" stroke="url(#bgrad)" stroke-width="7" stroke-linecap="round"></path></svg>
+            <span class="brand-name">Infinite Designs<small>Est. 2024</small></span>
+          </a>
+          <p style="color:var(--txt-dim);font-size:.92rem;max-width:34ch;line-height:1.65">A four-person digital product studio in Dhaka. Founded 2024. Forty-plus projects delivered for eighteen clients.</p>
+          <div class="soc">
+            <!-- These three work right now. To add LinkedIn/Facebook later,
+                 copy one of these <a> tags and change href + aria-label. -->
+            <a href="mailto:hello@infinitedesigns.com.bd" aria-label="Email us" title="Email us"><svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5zM4.2 6l7.8 5.9L19.8 6z"></path></svg></a>
+            <a href="tel:+8801838642061" aria-label="Call us" title="Call 01838642061"><svg viewBox="0 0 24 24"><path d="M6.6 3h3.1l1.6 4-2 1.5a12.5 12.5 0 0 0 6.2 6.2l1.5-2 4 1.6v3.1A2.6 2.6 0 0 1 18.4 20 15.4 15.4 0 0 1 4 5.6 2.6 2.6 0 0 1 6.6 3z"></path></svg></a>
+            <a href="https://wa.me/8801838642061" aria-label="WhatsApp us" title="WhatsApp 01838642061" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.6.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.2.6 2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"></path></svg></a>
+          </div>
+        </div>
+        <div><h5>Services</h5><div class="ftr-col" id="ftrServices"><a href="services-web-development.html">Web Development</a><a href="services-ui-ux-design.html">UI/UX Design</a><a href="services-software-development.html">Software Development</a><a href="services-ai-solutions.html">Artificial Intelligence</a><a href="services-digital-marketing-seo.html">Digital Marketing &amp; SEO</a><a href="services-mobile-app-development.html">Mobile App Development</a><a href="services-ecommerce-corporate.html">E-commerce &amp; Corporate Solutions</a><a href="services-lms-solutions.html">LMS Solutions</a></div></div>
+        <div><h5>Company</h5><div class="ftr-col">
+          <a href="about.html">About us</a><a href="work.html">Case studies</a><a href="insights.html">Insights</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="services.html">All services</a>
+        </div></div>
+        <div><h5>Studio</h5><div class="ftr-col">
+          <a href="contact.html">Uttara<br>Dhaka 1230, Bangladesh</a>
+          <a href="tel:+8801838642061">01838642061</a>
+          <a href="tel:+8801790645450">01790645450</a>
+          <a href="mailto:hello@infinitedesigns.com.bd">hello@infinitedesigns.com.bd</a>
+          <a href="mailto:careers@infinitedesigns.com.bd">careers@infinitedesigns.com.bd</a>
+        </div>
+        <p class="disclosure" style="margin-top:18px">Portfolio, client names and testimonials on this site are sample content created to demonstrate the layout. Replace them with your own before going live.</p>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <span>© 2026 Infinite Designs Ltd. All rights reserved.</span>
+        <div class="links"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="mailto:hello@infinitedesigns.com.bd">hello@infinitedesigns.com.bd</a></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Designing for 2G: performance budgets for the connection people actually have — Infinite Designs</title>
+<meta name="description" content="Your site is fast on the office fibre line. Here is what it feels like on a mid-range Android handset in Mirpur at six in the evening.">
+<meta name="theme-color" content="#07060D">
+<link rel="canonical" href="https://infinitedesigns.com.bd/insights-designing-for-2g.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Infinite Designs">
+<meta property="og:title" content="Designing for 2G: performance budgets for the connection people actually have — Infinite Designs">
+<meta property="og:description" content="Your site is fast on the office fibre line. Here is what it feels like on a mid-range Android handset in Mirpur at six in the evening.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'><path d='M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19' fill='none' stroke='%237B5CFF' stroke-width='9' stroke-linecap='round'/></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'><path d='M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19' fill='none' stroke='%237B5CFF' stroke-width='9' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,600;12..96,75..100,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="lw">
+    <svg viewBox="0 0 120 60" aria-hidden="true">
+      <defs><linearGradient id="lgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7B5CFF"/><stop offset="55%" stop-color="#6B7BFF"/><stop offset="100%" stop-color="#3AE0D0"/></linearGradient></defs>
+      <path class="draw" d="M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19" fill="none" stroke="url(#lgrad)" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <div class="bar"><i id="loadbar"></i></div>
+    <div class="pc" id="loadpc">00</div>
+  </div>
+</div>
+
+<canvas id="delta" aria-hidden="true"></canvas>
+<div id="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"></div>
+
+<header class="hdr" id="hdr">
+  <div class="shell hdr-in">
+    <a href="index.html" class="brand" aria-label="Infinite Designs home">
+      <svg viewBox="0 0 120 60" aria-hidden="true"><defs><linearGradient id="bgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7B5CFF"/><stop offset="55%" stop-color="#6B7BFF"/><stop offset="100%" stop-color="#3AE0D0"/></linearGradient></defs><path d="M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19" fill="none" stroke="url(#bgrad)" stroke-width="7" stroke-linecap="round"/></svg>
+      <span class="brand-name">Infinite Designs<small>Uttara &middot; Dhaka</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Primary"><a href="work.html">Work</a><a href="services.html">Services</a><a href="about.html">About</a><a href="insights.html" class="on">Insights</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></nav>
+    <div class="hdr-cta">
+      <a href="contact.html" class="btn btn-pri btn-sm" data-cursor>Start a project<svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <nav id="drawerNav" aria-label="Mobile"><a href="work.html"><span>Work</span><span class="idx">01</span></a><a href="services.html"><span>Services</span><span class="idx">02</span></a><a href="about.html"><span>About</span><span class="idx">03</span></a><a href="insights.html" class="on"><span>Insights</span><span class="idx">04</span></a><a href="careers.html"><span>Careers</span><span class="idx">05</span></a><a href="contact.html"><span>Contact</span><span class="idx">06</span></a></nav>
+  <div class="drawer-foot">
+    <a href="mailto:hello@infinitedesigns.com.bd">hello@infinitedesigns.com.bd</a><a href="tel:+8801838642061">01838642061</a><span>Uttara, Dhaka 1230</span>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <main id="app">
+
+<section class="cs-hero">
+  <div class="shell">
+    <div class="breadcrumb"><a href="insights.html">Insights</a> <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg> <span>Performance</span></div>
+    <h1 style="max-width:18ch;font-size:clamp(2.1rem,4.6vw,3.7rem)">Designing for 2G: performance budgets for the connection people actually have</h1>
+    <div style="display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-faint)">
+      <span>Nusrat Jahan</span><span>19 June 2026</span><span>7 min read</span>
+    </div>
+  </div>
+</section>
+<section><div class="shell"><div class="cs-art" data-par="0.04"><svg viewBox="0 0 560 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Article illustration">
+    <defs><linearGradient id="p279" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgb(25,68,74)"></stop><stop offset="100%" stop-color="#0A0912"></stop></linearGradient></defs>
+    <rect width="560" height="240" fill="url(#p279)"></rect><g><circle cx="40" cy="40" r="2" fill="#3AE0D0" opacity="0.25"></circle><circle cx="87" cy="123" r="4" fill="#3AE0D0" opacity="0.39"></circle><circle cx="134" cy="46" r="6" fill="#3AE0D0" opacity="0.53"></circle><circle cx="181" cy="129" r="8" fill="#3AE0D0" opacity="0.67"></circle><circle cx="228" cy="52" r="10" fill="#3AE0D0" opacity="0.81"></circle><circle cx="275" cy="135" r="2" fill="#3AE0D0" opacity="0.25"></circle><circle cx="322" cy="58" r="4" fill="#3AE0D0" opacity="0.39"></circle><circle cx="369" cy="141" r="6" fill="#3AE0D0" opacity="0.53"></circle><circle cx="416" cy="64" r="8" fill="#3AE0D0" opacity="0.67"></circle><circle cx="463" cy="147" r="10" fill="#3AE0D0" opacity="0.81"></circle><circle cx="50" cy="70" r="2" fill="#3AE0D0" opacity="0.25"></circle><circle cx="97" cy="153" r="4" fill="#3AE0D0" opacity="0.39"></circle><circle cx="144" cy="76" r="6" fill="#3AE0D0" opacity="0.53"></circle><circle cx="191" cy="159" r="8" fill="#3AE0D0" opacity="0.67"></circle><circle cx="238" cy="82" r="10" fill="#3AE0D0" opacity="0.81"></circle><circle cx="285" cy="165" r="2" fill="#3AE0D0" opacity="0.25"></circle><circle cx="332" cy="88" r="4" fill="#3AE0D0" opacity="0.39"></circle><circle cx="379" cy="171" r="6" fill="#3AE0D0" opacity="0.53"></circle><circle cx="426" cy="94" r="8" fill="#3AE0D0" opacity="0.67"></circle><circle cx="473" cy="177" r="10" fill="#3AE0D0" opacity="0.81"></circle><circle cx="60" cy="100" r="2" fill="#3AE0D0" opacity="0.25"></circle><circle cx="107" cy="183" r="4" fill="#3AE0D0" opacity="0.39"></circle><circle cx="154" cy="106" r="6" fill="#3AE0D0" opacity="0.53"></circle><circle cx="201" cy="189" r="8" fill="#3AE0D0" opacity="0.67"></circle><circle cx="248" cy="112" r="10" fill="#3AE0D0" opacity="0.81"></circle><circle cx="295" cy="195" r="2" fill="#3AE0D0" opacity="0.25"></circle></g><path d="M30 190 Q150 60 270 150 T510 90" fill="none" stroke="#3AE0D0" stroke-width="3" stroke-linecap="round"></path></svg></div></div></section>
+<section class="sec"><div class="shell">
+  <div class="article-body">
+    <p class="lede" style="max-width:none;color:var(--txt);font-size:1.22rem;line-height:1.55">Your site is fast on the office fibre line. Here is what it feels like on a mid-range Android handset in Mirpur at six in the evening.</p>
+    <p>We keep a drawer of cheap Android phones in the studio. Before anything ships, it runs on the worst one, on a throttled connection, in the evening peak. It is the single most useful quality gate we have, and it changes what gets built.</p><h3>The median user is not you</h3><p>Design and engineering teams work on fast machines on fast networks. That environment makes a 3 MB JavaScript bundle feel instant and a 900 KB hero image feel free. Neither is true on a four-year-old handset sharing a congested tower with a neighbourhood.</p><p>The gap is not marginal. A page that renders in 800 milliseconds in the studio routinely takes nine seconds in the field. Nobody waits nine seconds. They leave, and the analytics record it as a bounce rather than as the engineering failure it is.</p><h3>Set a budget, then defend it</h3><p>A performance budget is only real if something fails when you exceed it. Ours runs in continuous integration and blocks the merge: a ceiling on JavaScript transferred, a ceiling on the largest image, a target for Largest Contentful Paint measured on a throttled profile.</p><ul><li>Under 170 KB of JavaScript on the critical path, compressed</li><li>Largest Contentful Paint under 2.0 s on a throttled 4G profile</li><li>Images served as AVIF or WebP with explicit dimensions, never above 200 KB</li><li>Fonts subset to the glyphs actually used, with a real fallback stack</li><li>No third-party script on the critical path — analytics loads after interaction</li></ul><blockquote>Every kilobyte on the critical path is a decision to exclude somebody. Make it deliberately or not at all.</blockquote><h3>Bangla makes it harder, and more important</h3><p>Bangla web fonts are large. A full Bangla face can cost more than the rest of the page combined, and subsetting is harder than for Latin because conjunct forms pull in glyphs you did not expect. We subset per template, measure the result, and accept a system fallback where the content is functional rather than editorial.</p><p>None of this is exotic engineering. It is a set of limits, enforced automatically, that keeps the team honest about who the site is for.</p>
+    <div class="panel" style="margin-top:26px;display:flex;gap:16px;align-items:center">
+      <span style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;display:block;border:1px solid var(--line-2)"><svg viewBox="0 0 240 268" role="img" aria-label="Illustrated portrait">
+    <defs><linearGradient id="a280" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgb(122,85,41)"></stop><stop offset="100%" stop-color="#0A0912"></stop></linearGradient>
+    <linearGradient id="a281" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFAE3B" stop-opacity=".9"></stop><stop offset="100%" stop-color="rgb(153,104,35)"></stop></linearGradient></defs>
+    <rect width="240" height="268" fill="url(#a280)"></rect>
+    <circle cx="120" cy="120" r="74" fill="#FFAE3B" opacity=".13"></circle>
+    <path d="M40 268c0-42 36-62 80-62s80 20 80 62z" fill="url(#a281)"></path>
+    <path d="M96 176h48v26H96z" fill="#D6A178"></path>
+    <path d="M74 118c0-30 20-52 46-52s46 22 46 52c0 34-12 52-46 52s-46-18-46-52z" fill="rgb(191,131,44)"></path><path d="M78 150c-8 26-4 48 6 60h72c10-12 14-34 6-60z" fill="rgb(166,113,38)"></path>
+    <ellipse cx="120" cy="120" rx="36" ry="44" fill="#D6A178"></ellipse>
+    
+    <ellipse cx="104" cy="118" rx="4" ry="5" fill="#120F1A"></ellipse><ellipse cx="136" cy="118" rx="4" ry="5" fill="#120F1A"></ellipse>
+    <path d="M110 136q10 8 20 0" fill="none" stroke="#120F1A" stroke-width="2.6" stroke-linecap="round"></path>
+    <path d="M120 122v9" fill="none" stroke="rgb(139,105,78)" stroke-width="2.4" stroke-linecap="round"></path>
+    <path d="M84 124c0 32 16 50 36 50s36-18 36-50c-6 22-18 32-36 32s-30-10-36-32z" fill="#2A1C18" opacity=".92"></path>
+    
+    <path d="M96 206 v62" stroke="rgb(204,142,98)" stroke-width="2" opacity=".4"></path>
+  </svg></span>
+      <span><b style="display:block;color:var(--txt)">Nusrat Jahan</b><span style="font-size:.85rem;color:var(--txt-faint)">Co-founder &amp; Design Lead</span></span>
+    </div>
+  </div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="shell">
+  
+  <div class="sec-head">
+    <span class="eyebrow">Keep reading</span>
+    <div class="row">
+      <h2 style="max-width:18ch">More from the studio.</h2>
+      
+    </div>
+    
+  </div>
+  <div class="grid g3">
+  <a href="insights-erp-rebuild-trap.html" class="post-card d1" data-cursor-big="">
+    <div class="ph"><svg viewBox="0 0 560 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Article illustration">
+    <defs><linearGradient id="p282" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgb(42,34,86)"></stop><stop offset="100%" stop-color="#0A0912"></stop></linearGradient></defs>
+    <rect width="560" height="240" fill="url(#p282)"></rect><g fill="none" stroke="#7B5CFF" stroke-width="2"><rect x="40" y="46" width="180" height="100" rx="10" opacity="0.5"></rect><rect x="64" y="53" width="174" height="96" rx="10" opacity="0.46"></rect><rect x="88" y="60" width="168" height="92" rx="10" opacity="0.42"></rect><rect x="112" y="67" width="162" height="88" rx="10" opacity="0.38"></rect><rect x="136" y="74" width="156" height="84" rx="10" opacity="0.33999999999999997"></rect><rect x="160" y="81" width="150" height="80" rx="10" opacity="0.3"></rect><rect x="184" y="88" width="144" height="76" rx="10" opacity="0.26"></rect><rect x="208" y="95" width="138" height="72" rx="10" opacity="0.21999999999999997"></rect><rect x="232" y="102" width="132" height="68" rx="10" opacity="0.18"></rect><rect x="256" y="109" width="126" height="64" rx="10" opacity="0.14"></rect><rect x="280" y="116" width="120" height="60" rx="10" opacity="0.09999999999999998"></rect></g></svg></div>
+    <div class="pb">
+      <div class="pm"><span>ERP</span><span style="color:var(--txt-faint)">8 min read</span></div>
+      <h4 style="font-size:1.15rem;line-height:1.25">Why Bangladeshi enterprises keep rebuilding the same ERP</h4>
+      <p>Three ERP implementations in eleven years is not bad luck. It is a predictable outcome of buying a process instead of encoding one.</p>
+      <div class="by">Tanvir Mahmud · 4 August 2026</div>
+    </div>
+  </a>
+  <a href="insights-rag-production-cost.html" class="post-card d3" data-cursor-big="">
+    <div class="ph"><svg viewBox="0 0 560 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Article illustration">
+    <defs><linearGradient id="p283" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgb(77,55,35)"></stop><stop offset="100%" stop-color="#0A0912"></stop></linearGradient></defs>
+    <rect width="560" height="240" fill="url(#p283)"></rect><g stroke="#FFAE3B" stroke-width="2.4" fill="none"><path d="M20 30 H120" opacity="0.9" stroke-linecap="round"></path><path d="M20 54 H193" opacity="0.81" stroke-linecap="round"></path><path d="M20 78 H266" opacity="0.72" stroke-linecap="round"></path><path d="M20 102 H339" opacity="0.63" stroke-linecap="round"></path><path d="M20 126 H412" opacity="0.54" stroke-linecap="round"></path><path d="M20 150 H125" opacity="0.45000000000000007" stroke-linecap="round"></path><path d="M20 174 H198" opacity="0.36" stroke-linecap="round"></path><path d="M20 198 H271" opacity="0.27" stroke-linecap="round"></path></g></svg></div>
+    <div class="pb">
+      <div class="pm"><span>AI</span><span style="color:var(--txt-faint)">9 min read</span></div>
+      <h4 style="font-size:1.15rem;line-height:1.25">What a RAG system actually costs to run in production</h4>
+      <p>The demo costs nothing. The pipeline that keeps it accurate as your documents change is where the budget goes.</p>
+      <div class="by">Rafiul Karim · 2 May 2026</div>
+    </div>
+  </a>
+  <a href="insights-design-system-small-studio.html" class="post-card d1" data-cursor-big="">
+    <div class="ph"><svg viewBox="0 0 560 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Article illustration">
+    <defs><linearGradient id="p284" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgb(77,37,56)"></stop><stop offset="100%" stop-color="#0A0912"></stop></linearGradient></defs>
+    <rect width="560" height="240" fill="url(#p284)"></rect><g fill="none" stroke="#FF6B8B" stroke-width="2.2"><circle cx="270" cy="120" r="22" opacity="0.65"></circle><circle cx="270" cy="120" r="48" opacity="0.5700000000000001"></circle><circle cx="270" cy="120" r="74" opacity="0.49"></circle><circle cx="270" cy="120" r="100" opacity="0.41000000000000003"></circle><circle cx="270" cy="120" r="126" opacity="0.33"></circle><circle cx="270" cy="120" r="152" opacity="0.25"></circle></g><circle cx="270" cy="120" r="12" fill="#FF6B8B"></circle></svg></div>
+    <div class="pb">
+      <div class="pm"><span>Design</span><span style="color:var(--txt-faint)">6 min read</span></div>
+      <h4 style="font-size:1.15rem;line-height:1.25">A design system two designers can actually maintain</h4>
+      <p>Small teams are told design systems are a luxury for big companies. The opposite is true — you need one precisely because there are two of you.</p>
+      <div class="by">Mehedi Hasan · 11 March 2026</div>
+    </div>
+  </a></div>
+</div></section>
+
+  <section class="sec"><div class="shell">
+    <div class="cta-band" data-par="-0.05">
+      <span class="eyebrow solo" style="justify-content:center">Start a conversation</span>
+      <h2 style="margin-top:16px">Let’s work out whether we’re the right studio for this.</h2>
+      <p class="lede">Tell us what you’re trying to build. You’ll get a senior person on the first call — not a salesperson — and an honest answer about scope, budget and timeline within two working days.</p>
+      <div class="acts"><a href="contact.html" class="btn btn-pri" data-cursor="">Start a project<svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"></path></svg></a><a href="work.html" class="btn btn-ghost" data-cursor="">See how we work<svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"></path></svg></a></div>
+    </div>
+  </div></section>
+  </main>
+
+<footer class="ftr">
+    <div class="shell">
+      <div class="ftr-top">
+        <div>
+          <a href="index.html" class="brand" style="margin-bottom:18px">
+            <svg viewBox="0 0 120 60" aria-hidden="true"><path d="M30 30c0-11 8-19 17-19s13 7 17 13 8 13 17 13 17-8 17-19-8-19-17-19-13 7-17 13-8 13-17 13-17-8-17-19" fill="none" stroke="url(#bgrad)" stroke-width="7" stroke-linecap="round"></path></svg>
+            <span class="brand-name">Infinite Designs<small>Est. 2024</small></span>
+          </a>
+          <p style="color:var(--txt-dim);font-size:.92rem;max-width:34ch;line-height:1.65">A four-person digital product studio in Dhaka. Founded 2024. Forty-plus projects delivered for eighteen clients.</p>
+          <div class="soc">
+            <!-- These three work right now. To add LinkedIn/Facebook later,
+                 copy one of these <a> tags and change href + aria-label. -->
+            <a href="mailto:hello@infinitedesigns.com.bd" aria-label="Email us" title="Email us"><svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5zM4.2 6l7.8 5.9L19.8 6z"></path></svg></a>
+            <a href="tel:+8801838642061" aria-label="Call us" title="Call 01838642061"><svg viewBox="0 0 24 24"><path d="M6.6 3h3.1l1.6 4-2 1.5a12.5 12.5 0 0 0 6.2 6.2l1.5-2 4 1.6v3.1A2.6 2.6 0 0 1 18.4 20 15.4 15.4 0 0 1 4 5.6 2.6 2.6 0 0 1 6.6 3z"></path></svg></a>
+            <a href="https://wa.me/8801838642061" aria-label="WhatsApp us" title="WhatsApp 01838642061" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.6.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.2.6 2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"></path></svg></a>
+          </div>
+        </div>
+        <div><h5>Services</h5><div class="ftr-col" id="ftrServices"><a href="services-web-development.html">Web Development</a><a href="services-ui-ux-design.html">UI/UX Design</a><a href="services-software-development.html">Software Development</a><a href="services-ai-solutions.html">Artificial Intelligence</a><a href="services-digital-marketing-seo.html">Digital Marketing &amp; SEO</a><a href="services-mobile-app-development.html">Mobile App Development</a><a href="services-ecommerce-corporate.html">E-commerce &amp; Corporate Solutions</a><a href="services-lms-solutions.html">LMS Solutions</a></div></div>
+        <div><h5>Company</h5><div class="ftr-col">
+          <a href="about.html">About us</a><a href="work.html">Case studies</a><a href="insights.html">Insights</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="services.html">All services</a>
+        </div></div>
+        <div><h5>Studio</h5><div class="ftr-col">
+          <a href="contact.html">Uttara<br>Dhaka 1230, Bangladesh</a>
+          <a href="tel:+8801838642061">01838642061</a>
+          <a href="tel:+8801790645450">01790645450</a>
+          <a href="mailto:hello@infinitedesigns.com.bd">hello@infinitedesigns.com.bd</a>
+          <a href="mailto:careers@infinitedesigns.com.bd">careers@infinitedesigns.com.bd</a>
+        </div>
+        <p class="disclosure" style="margin-top:18px">Portfolio, client names and testimonials on this site are sample content created to demonstrate the layout. Replace them with your own before going live.</p>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <span>© 2026 Infinite Designs Ltd. All rights reserved.</span>
+        <div class="links"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="mailto:hello@infinitedesigns.com.bd">hello@infinitedesigns.com.bd</a></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="site.js" defer></script>
+</body>
+</html>
