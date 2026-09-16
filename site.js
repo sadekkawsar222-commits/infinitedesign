@@ -162,8 +162,10 @@
   })();
 
   /* ---------- contact form -------------------------------
-     Validates in the browser. To actually send, replace the
-     two lines marked below — see README.md.                  */
+     Sends every enquiry to Formspree, which emails it to you.
+     To change where it goes, replace the ID below with your
+     own Formspree form ID.                                    */
+  var FORMSPREE_ID = 'xqpazype';
   (function form() {
     var f = $('#contactForm');
     if (!f) return;
@@ -183,10 +185,32 @@
         if (bad) bad.focus();
         return;
       }
-      /* --- replace these two lines to POST to your endpoint --- */
-      f.style.display = 'none';
-      ok.classList.add('show');
-      ok.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      var data = {
+        Name: $('#cf-name').value.trim(),
+        Email: $('#cf-email').value.trim(),
+        Company: $('#cf-company').value.trim(),
+        Services: $$('[name=service]:checked', f).map(function (i) { return i.value; }).join(', ') || '\u2014',
+        Budget: $('#cf-budget').value,
+        Timeline: $('#cf-when').value,
+        Message: $('#cf-msg').value.trim(),
+        _replyto: $('#cf-email').value.trim(),
+        _subject: 'Website enquiry \u2014 ' + $('#cf-name').value.trim() + ' (' + $('#cf-company').value.trim() + ')'
+      };
+      var show = function (note) {
+        f.style.display = 'none';
+        ok.classList.add('show');
+        if (note) { var n = ok.querySelector('.note-live'); if (n) n.textContent = note; }
+        ok.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      };
+      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        show(r.ok ? '' : 'If you do not hear back within a day, please call 01838642061.');
+      }).catch(function () {
+        show('Your message could not be sent automatically. Please call 01838642061 or email us directly.');
+      });
     });
     f.addEventListener('input', function (e) {
       var fld = e.target.closest('.field');
